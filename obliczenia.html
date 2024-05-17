@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stacja paliw</title>
+        <link rel="stylesheet" href="./styl2.css">
+    </head>
+    <body>
+        <header><h1>Całodobowa stacja paliw</h1></header>
+        <nav>
+            <a href="./stacja.html"><img src="./home.png" alt=""></a>
+            <a href="./obliczenia.html"><img src="./znak.png" alt=""></a>
+            <a href="./kwerendy.txt">Pobierz dokumenty</a>
+        </nav>
+        <main>
+            <div class="blokLewy">
+                <h2>Orientacyjny koszt paliwa</h2>
+                <span>Rodzaj paliwa (1-benzyna, 2-olej napędowy)</span>
+                <br>
+                <input type="number" name="rodzajPaliwa">
+                <br>
+                <span>Ile litrów?</span>
+                <br>
+                <input type="number" name="ileLitrow">
+                <br>
+                <button>OBLICZ</button>
+                <div class="wynik"></div>
+            </div>
+            <div class="blokPrawy"><img class="samochod" src="./samochod.png" alt="samochód"></div>
+        </main>
+        <footer><p>Stronę opracował: 000000000000000</p></footer>
+
+        <script>
+            const buttonOblicz = document.querySelector('button');
+            const rodzajPaliwa = document.querySelector('input[name="rodzajPaliwa"]');
+            const ileLitrow = document.querySelector('input[name="ileLitrow"]');
+            const wynik = document.querySelector('div.wynik');
+
+
+            buttonOblicz.addEventListener('click', function() {
+                const rodzajPaliwa_value = rodzajPaliwa.value;
+                const ileLitrow_value = ileLitrow.value;
+                let kosztZaLitr = 0;
+
+                if (rodzajPaliwa_value == 1) {
+                    kosztZaLitr = 4;
+                } else if (rodzajPaliwa_value == 2) {
+                    kosztZaLitr = 3.5;
+                } else {
+                    kosztZaLitr = 0;
+                }
+
+                const wartosc = kosztZaLitr * ileLitrow_value;
+
+                wynik.innerHTML = `Koszt paliwa: ${wartosc} zł`
+            })
+        </script>
+    </body>
+</html>
